@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/bootstrap.min.js"></script>
+    <title>What Stone for That?</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/site.webmanifest">
+</head>
+
+<body style="background-image: url('img/bg-home.jpg');background-repeat: no-repeat;background-attachment: fixed;background-position: center;">
+
+    <div class="container d-flex justify-content-center align-items-center" style="height:100vh">%
+        <form id="searchform" class="text-center" style="width:100%;max-width:400px" method="POST" action="">
+            <fieldset>
+                <legend class="text-white h3">What are you looking for</legend>
+                <div class="input-group mb-3 bg-white">
+                    <input id="searchTerm" type="text" class="form-control rounded-0" placeholder="Enter your ailment" aria-label="Enter your ailment" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-secondary rounded-0" type="button" id="search">Search</button>
+                    </div>
+                </div>
+        </fieldset>
+        </form>
+    </div>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        jQuery('#search').click(function(){
+            const searchTerm = jQuery('#searchTerm').val();
+            window.location = 'results.html?search=' . searchTerm;
+        });
+
+    </script>
+
+</body>
+
+</html>

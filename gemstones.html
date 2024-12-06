@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/bootstrap.min.js"></script>
+    <title>What Stone for That?</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/site.webmanifest">
+</head>
+
+<body>
+
+    <header class="border-bottom">
+      <div class="container py-3 d-flex justify-content-between align-items-center">
+        <div>
+            <img src="img/logo.png" alt="" style="height:50px">
+        </div>
+        <div>
+            <div class="input-group bg-white">
+                <input type="text" class="form-control rounded-0" placeholder="Enter your ailment" aria-label="Enter your ailment" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-secondary rounded-0" type="button" onclick="location.href='results.html'">Search</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <i class="fas fa-bars fa-2x" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></i>
+        </div>
+
+      </div>
+    </header>
+    <main>
+
+        <div class="container">
+            <div class="row py-4">
+                <strong>Alphabetical List of Gemstones</strong>
+            </div>
+            <div class="row" id="content"></div>
+        </div>
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    Some text as placeholder. In real life you can have the elements you have chosen. Like, text,
+                    images, lists, etc.
+                </div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Dropdown button
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+      <div class="container">
+        <div class="row">
+            <div class="col text-center py-3 border-top border-primary">
+                <small>footer</small>
+            </div>
+        </div>
+    </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1"></script>
+    <script>
+        const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVjdGZpb2hmZWd0dGZhcGlhem5pIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njc4ODc3ODEsImV4cCI6MTk4MzQ2Mzc4MX0.p_NdRX7tlhnAYxH1v2wSS85C620dxSpEhH-C3jwYBh8";
+        const url = "https://ectfiohfegttfapiazni.supabase.co";
+        const database = supabase.createClient(url, key);
+
+        const renderItems = async () => {
+            let content = document.getElementById("content");
+            const res = await database
+                .from("gemstones")
+                .select("*")
+                .order('name', { ascending: true });
+            if (res) {
+                let html = `<ul class="list-group list-group-flush">`;
+                res.data.forEach(element => {
+                                        html += `
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">${element['name']}</div>
+                            <span>
+                                <img src='${element['image']}' style='height: 30px;'>
+                            </span>
+                        </li>
+                    `;
+                });
+                html
+                content.innerHTML = html;
+                item = "";
+            }
+        }
+        renderItems();
+    </script>
+</body>
+</html>
