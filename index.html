@@ -33,9 +33,13 @@
     <script>
         jQuery('#search').click(function(){
             const searchTerm = jQuery('#searchTerm').val();
-            window.location.href = 'results.html?searchTerm=' + searchTerm;
-        });
+            if (searchTerm !== "") {
+                window.location.href = 'results.html?searchTerm=' + searchTerm;
+            } else {
+                jQuery('#searchTerm').attr('placeholder', 'Search field cannot be blank');
+            }
 
+        });
     </script>
 
 </body>

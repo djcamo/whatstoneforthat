@@ -42,9 +42,11 @@
                 </div>
             </div>
             <div class="row py-4">
-                <strong>Alphabetical List of Gemstones</strong>
+                <strong>About</strong>
             </div>
-            <div class="row" id="content"></div>
+            <div class="row" id="content">
+
+            </div>
         </div>
 
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
@@ -75,36 +77,6 @@
         </div>
     </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1"></script>
-    <script>
-        const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVjdGZpb2hmZWd0dGZhcGlhem5pIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njc4ODc3ODEsImV4cCI6MTk4MzQ2Mzc4MX0.p_NdRX7tlhnAYxH1v2wSS85C620dxSpEhH-C3jwYBh8";
-        const url = "https://ectfiohfegttfapiazni.supabase.co";
-        const database = supabase.createClient(url, key);
 
-        const renderItems = async () => {
-            let content = document.getElementById("content");
-            const res = await database
-                .from("gemstones")
-                .select("*")
-                .order('name', { ascending: true });
-            if (res) {
-                let html = `<ul class="list-group list-group-flush">`;
-                res.data.forEach(element => {
-                    html += `
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">${element['name']}</div>
-                            <span>
-                                <img src='${element['image']}' style='height: 30px;'>
-                            </span>
-                        </li>
-                    `;
-                });
-                html
-                content.innerHTML = html;
-                item = "";
-            }
-        }
-        renderItems();
-    </script>
 </body>
 </html>
