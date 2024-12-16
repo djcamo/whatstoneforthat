@@ -98,13 +98,15 @@
                     html += `
                          <div class="col-md-3 col-sm-12 mb-3">
                           <div class="card">
-                            <img src="${element.image}" class="card-img-top" alt="${element.name}">
-                            <div class="card-body border-top">
-                              <h5 class="card-title">${element.name}</h5>
-                            </div>
-                            <div class="card-footer bg-primary text-body-secondary">
-                              <a class="text-white" href="details.html"><small class="text-body-white">Learn more...</small></a>
-                            </div>
+                            <a href="details.html?id=${element.id}" class="text-decoration-none">
+                              <img src="${element.image}" class="card-img-top" alt="${element.name}">
+                              <div class="card-body border-top">
+                                <h5 class="card-title">${element.name}</h5>
+                              </div>
+                              <div class="card-footer bg-primary text-body-secondary">
+                                <a class="text-white" href="details.html?id=${element.id}"><small class="text-body-white">Learn more>...</small></a>
+                              </div>
+                            </a>
                           </div>
                         </div>
                     `;
