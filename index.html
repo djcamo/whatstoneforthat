@@ -14,19 +14,22 @@
     <link rel="manifest" href="icons/site.webmanifest">
 </head>
 
-<body style="background-image: url('img/bg-home.jpg');background-repeat: no-repeat;background-attachment: fixed;background-position: center;">
+<body style="background-image: url('img/bg-home.jpg');background-repeat: no-repeat;background-attachment: fixed;background-position: center; background-color: #000000;">
 
     <div class="container d-flex justify-content-center align-items-center" style="height:100vh">%
         <form id="searchform" class="text-center" style="width:100%;max-width:400px" method="POST" action="">
             <fieldset>
-                <legend class="text-white h3">What are you looking for</legend>
+                <legend class="text-white h2">Healing Gemstones</legend>
+                <small class="text-white">
+                    Enter your search eg. wealth, love, zodiac sign, birth month
+                </small>
                 <div class="input-group mb-3 bg-white">
                     <input id="searchTerm" type="text" class="form-control rounded-0" placeholder="Enter your ailment" aria-label="Enter your ailment" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-secondary rounded-0" type="button" id="search">Search</button>
                     </div>
                 </div>
-        </fieldset>
+            </fieldset>
         </form>
     </div>
     <script src="js/jquery-3.7.1.min.js"></script>
