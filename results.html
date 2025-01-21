@@ -2,106 +2,108 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="js/bootstrap.min.js"></script>
-    <title>What Stone for That?</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-    <link rel="manifest" href="icons/site.webmanifest">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="js/bootstrap.min.js"></script>
+  <title>What Stone for That?</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="manifest" href="icons/site.webmanifest">
 </head>
 
 <body>
 
-    <header class="border-bottom">
-      <div class="container py-3 d-flex justify-content-between align-items-center">
-        <div>
-          <a href="index.html"><img src="img/logo.png" alt="" style="height:50px"></a>
-        </div>
-        <div>
-
-        </div>
-        <div>
-            <i class="fas fa-bars fa-2x" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></i>
-        </div>
-
+  <header class="border-bottom bg-primary">
+    <div class="container py-3 d-flex justify-content-between align-items-center">
+      <div>
+        <i class="fas fa-angle-left fa-2x text-white" onclick="history.back()" role="button"></i>
       </div>
-    </header>
-    <main>
-        <div class="container">
-            <div class="row py-3">
-              <div class="input-group bg-white vw-100">
-                <form id="searchform" class="text-center" style="width:100%;max-width:400px" method="POST" action="">
-                  <fieldset>
-                      <div class="input-group mb-3 bg-white">
-                          <input id="searchTerm" type="text" class="form-control rounded-0" placeholder="Enter your ailment" aria-label="Enter your ailment" aria-describedby="basic-addon2">
-                          <div class="input-group-append">
-                            <button class="btn btn-secondary rounded-0" type="button" id="search1">Search</button>
-                          </div>
-                      </div>
-                  </fieldset>
-              </form>
-            </div>
-            </div>
-            <div class="row py-4">
-                <strong>Search Results for : <span id="search"></span></strong>
-            </div>
-            <div class="row" id="content"></div>
-        </div>
-
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-            aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="gemstones.html">Gemstones</a>
-                </li>
-              </ul>
-            </div>
-        </div>
-
-    </main>
-    <footer>
-      <div class="container">
-        <div class="row">
-            <div class="col text-center py-3 border-top border-primary">
-                <small>footer</small>
-            </div>
-        </div>
+      <div>
+        <h3 class="text-white">Healing Gemstones</h3>
+      </div>
+      <div>
+        <i class="fas fa-bars fa-2x text-white" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+          aria-controls="offcanvasExample"></i>
+      </div>
     </div>
-    </footer>
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1"></script>
-    <script>
-        const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVjdGZpb2hmZWd0dGZhcGlhem5pIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njc4ODc3ODEsImV4cCI6MTk4MzQ2Mzc4MX0.p_NdRX7tlhnAYxH1v2wSS85C620dxSpEhH-C3jwYBh8";
-        const url = "https://ectfiohfegttfapiazni.supabase.co";
-        const database = supabase.createClient(url, key);
+  </header>
+  <main>
+    <div class="container">
+      <div class="row py-3">
+        <div class="input-group bg-white vw-100">
+          <form id="searchform" class="text-center" style="width:100%;max-width:400px" method="POST" action="">
+            <fieldset>
+              <div class="input-group mb-3 bg-white">
+                <input id="searchTerm" type="text" class="form-control rounded-0" placeholder="Enter your ailment"
+                  aria-label="Enter your ailment" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-secondary rounded-0" type="button" id="search1">Search</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <div class="row py-4">
+        <strong>Search Results for : <span id="search"></span></strong>
+      </div>
+      <div class="row" id="content"></div>
+    </div>
 
-        const queryString = window.location.search;
-        const urlParams  = new URLSearchParams(queryString);
-        const searchTerm = urlParams.get('searchTerm').toLowerCase();
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gemstones.html">Gemstones</a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-        const renderItems = async () => {
-            let content = document.getElementById("content");
-            const res = await database
-                .from("gemstones")
-                .select("*")
-                .like('search', "%" + searchTerm + "%")
-                .order('name', { ascending: true });
-            if (res && res.data.length > 0) {
-                let html = ``;
-                res.data.forEach(element => {
-                    html += `
+  </main>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col text-center py-3 border-top border-primary">
+          <small>footer</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1"></script>
+  <script>
+    const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVjdGZpb2hmZWd0dGZhcGlhem5pIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njc4ODc3ODEsImV4cCI6MTk4MzQ2Mzc4MX0.p_NdRX7tlhnAYxH1v2wSS85C620dxSpEhH-C3jwYBh8";
+    const url = "https://ectfiohfegttfapiazni.supabase.co";
+    const database = supabase.createClient(url, key);
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const searchTerm = urlParams.get('searchTerm').toLowerCase();
+
+    const renderItems = async () => {
+      let content = document.getElementById("content");
+      const res = await database
+        .from("gemstones")
+        .select("*")
+        .like('search', "%" + searchTerm + "%")
+        .order('name', { ascending: true });
+      if (res && res.data.length > 0) {
+        let html = ``;
+        res.data.forEach(element => {
+          html += `
                          <div class="col-md-3 col-sm-12 mb-3">
                           <div class="card">
                             <a href="details.html?id=${element.id}" class="text-decoration-none">
@@ -116,27 +118,27 @@
                           </div>
                         </div>
                     `;
-                });
-                content.innerHTML = html;
-            }else{
-              content.innerHTML = `<p>No results found</p>`;
-            }
-        }
-        let search = document.getElementById("search");
-        search.innerText = searchTerm;
-        renderItems();
-
-        jQuery('#search1').click(function(){
-            const searchTerm = jQuery('#searchTerm').val();
-            if (searchTerm !== "") {
-                window.location.href = 'results.html?searchTerm=' + searchTerm;
-            } else {
-                jQuery('#searchTerm').attr('placeholder', 'Search field cannot be blank');
-            }
-
         });
+        content.innerHTML = html;
+      } else {
+        content.innerHTML = `<p>No results found</p>`;
+      }
+    }
+    let search = document.getElementById("search");
+    search.innerText = searchTerm;
+    renderItems();
 
-    </script>
+    jQuery('#search1').click(function () {
+      const searchTerm = jQuery('#searchTerm').val();
+      if (searchTerm !== "") {
+        window.location.href = 'results.html?searchTerm=' + searchTerm;
+      } else {
+        jQuery('#searchTerm').attr('placeholder', 'Search field cannot be blank');
+      }
+
+    });
+
+  </script>
 
 </body>
 

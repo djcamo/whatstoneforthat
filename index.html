@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="js/bootstrap.min.js"></script>
     <title>What Stone for That?</title>
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
@@ -14,9 +16,23 @@
     <link rel="manifest" href="icons/site.webmanifest">
 </head>
 
-<body style="background-image: url('img/bg-home.jpg');background-repeat: no-repeat;background-attachment: fixed;background-position: center; background-color: #000000;">
+<body
+    style="background-image: url('img/bg-home.jpg');background-repeat: no-repeat;background-attachment: fixed;background-position: center; background-color: #000000;">
+    <header class="border-bottom bg-primary">
+        <div class="container py-3 d-flex justify-content-between align-items-center">
+            <div>
 
-    <div class="container d-flex justify-content-center align-items-center" style="height:100vh">%
+            </div>
+            <div>
+                <h2 class="text-white">Healing Gemstones</h2>
+            </div>
+            <div>
+                <i class="fas fa-bars fa-2x text-white" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                    role="button" aria-controls="offcanvasExample"></i>
+            </div>
+        </div>
+    </header>
+    <div class="container d-flex justify-content-center align-items-center" style="height:85vh">%
         <form id="searchform" class="text-center" style="width:100%;max-width:400px" method="POST" action="">
             <fieldset>
                 <legend class="text-white h2">Healing Gemstones</legend>
@@ -24,17 +40,27 @@
                     Enter your search eg. wealth, love, zodiac sign, birth month
                 </small>
                 <div class="input-group mb-3 bg-white">
-                    <input id="searchTerm" type="text" class="form-control rounded-0" placeholder="Enter your ailment" aria-label="Enter your ailment" aria-describedby="basic-addon2">
+                    <input id="searchTerm" type="text" class="form-control rounded-0" placeholder="Enter your ailment"
+                        aria-label="Enter your ailment" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                      <button class="btn btn-secondary rounded-0" type="button" id="search">Search</button>
+                        <button class="btn btn-secondary rounded-0" type="button" id="search">Search</button>
                     </div>
                 </div>
             </fieldset>
         </form>
     </div>
+    <footer class="bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center py-3 border-top border-primary">
+                    <small>footer</small>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script>
-        jQuery('#search').click(function(){
+        jQuery('#search').click(function () {
             const searchTerm = jQuery('#searchTerm').val();
             if (searchTerm !== "") {
                 window.location.href = 'results.html?searchTerm=' + searchTerm;
