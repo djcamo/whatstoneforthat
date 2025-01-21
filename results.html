@@ -103,21 +103,43 @@
       if (res && res.data.length > 0) {
         let html = ``;
         res.data.forEach(element => {
-          html += `
-                         <div class="col-md-3 col-sm-12 mb-3">
-                          <div class="card">
-                            <a href="details.html?id=${element.id}" class="text-decoration-none">
-                              <img src="${element.image}" class="card-img-top" alt="${element.name}">
-                              <div class="card-body border-top">
-                                <h5 class="card-title">${element.name}</h5>
-                              </div>
-                              <div class="card-footer bg-primary text-body-secondary">
-                                <a class="text-white" href="details.html?id=${element.id}"><small class="text-body-white">Learn more>...</small></a>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
-                    `;
+          html +=
+                    // `
+                    //      <div class="col-md-3 col-sm-12 mb-3">
+                    //       <div class="card">
+                    //         <a href="details.html?id=${element.id}" class="text-decoration-none">
+                    //           <img src="${element.image}" class="card-img-top" alt="${element.name}">
+                    //           <div class="card-body border-top">
+                    //             <h5 class="card-title">${element.name}</h5>
+                    //           </div>
+                    //           <div class="card-footer bg-primary text-body-secondary">
+                    //             <a class="text-white" href="details.html?id=${element.id}"><small class="text-body-white">Learn more>...</small></a>
+                    //           </div>
+                    //         </a>
+                    //       </div>
+                    //     </div>
+                    // `;
+
+                  `<div class="col mb-2 shadow p-3 mb-5 bg-body-tertiary rounded">
+                    <div class="d-flex mb-3" >
+                      <div class="mr-4">
+                        <span class="u-icon-v4 u-icon-v4-rounded-50x g-color-gray-dark-v4 g-bg-gray-light-v4 rounded-circle">
+                          <span class="u-icon-v4-inner">
+                            <img src='${element['image']}' style='height: 100px;' alt="${element.name}">
+                          </span>
+                        </span>
+                      </div>
+                      <div class="pl-2">
+                        <h3 class="text-primary mb-15">${element.name}</h3>
+                        <p class="">
+                          ${element.title}<br>
+                          <a class="text-primary" href="details.html?id=${element.id}">More...</a>
+                        </p>
+
+                      </div>
+                    </div>
+                  </div>`;
+
         });
         content.innerHTML = html;
       } else {
