@@ -81,6 +81,19 @@
         const url = "https://ectfiohfegttfapiazni.supabase.co";
         const database = supabase.createClient(url, key);
 
+        const groupNames = arr => {
+            const map = arr.reduce((acc, val) => {
+                let char = val.name.charAt(0).toUpperCase();
+                acc[char] = [].concat((acc[char] || []), val);
+                return acc;
+            }, {});
+            const res = Object.keys(map).map(el => ({
+                letter: el,
+                names: map[el]
+            }));
+            return res;
+        };
+
         const renderItems = async () => {
             let content = document.getElementById("content");
             const res = await database
@@ -88,24 +101,64 @@
                 .select("*")
                 .order('name', { ascending: true });
             if (res) {
-                let html = `<ul class="list-group list-group-flush">`;
-                res.data.forEach(element => {
-                    html += `
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                let html = `<div class="accordion" id="accordionExample">`;
+                let innerHTML = ``;
 
+                const grouped = (groupNames(res.data));
+
+                grouped.forEach(element => {
+
+                    console.log(element);
+                    innerHTML = `<ul class="list-group list-group-flush">`;
+                    element.names.forEach(gem => {
+                        console.log(gem);
+
+                        innerHTML += `
+
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
-                                <a class="link-primary link-underline-opacity-0" href='details.html?id=${element['id']}'>${element['name']}</a>
+                                 <a class="link-primary link-underline-opacity-0" href='details.html?id=${gem['id']}'>${gem['name']}</a>
                             </div>
                             <span>
-                                <a href='details.html?id=${element['id']}'>
-                                <img src='${element['image']}' style='height: 30px;' alt="${element.name}">
+                                <a href='details.html?id=${gem['id']}'>
+                                <img src='${gem['image']}' style='height: 30px;' alt="${gem.name}">
                                 </a>
                             </span>
+                        </li>`;
 
-                        </li>
+                    });
+                    innerHTML += `</ul>`;
+
+                    html += `
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${element.letter}" aria-expanded="true" aria-controls="collapse${element.letter}">
+                            ${element.letter}
+                        </button>
+                        </h2>
+                        <div id="collapse${element.letter}" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            ${innerHTML}
+                        </div>
+                        </div>
+                    </div>
+
                     `;
+
+                    // html += `
+                    //     <li class="list-group-item d-flex justify-content-between align-items-start">
+                    //         <div class="ms-2 me-auto">
+                    //             <a class="link-primary link-underline-opacity-0" href='details.html?id=${element['id']}'>${element['name']}</a>
+                    //         </div>
+                    //         <span>
+                    //             <a href='details.html?id=${element['id']}'>
+                    //             <img src='${element['image']}' style='height: 30px;' alt="${element.name}">
+                    //             </a>
+                    //         </span>
+                    //     </li>
+                    // `;
                 });
-                html
+                html += `</div>`;
                 content.innerHTML = html;
                 item = "";
             }
