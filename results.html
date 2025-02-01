@@ -27,8 +27,7 @@
         <h3 class="text-white">Healing Gemstones</h3>
       </div>
       <div>
-        <i class="fas fa-bars fa-2x text-white" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-          aria-controls="offcanvasExample"></i>
+
       </div>
     </div>
   </header>
@@ -73,15 +72,25 @@
     </div>
 
   </main>
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col text-center py-3 border-top border-primary">
-          <small>footer</small>
+  <footer class="footer fixed-bottom bg-white py-3">
+    <div class="d-flex justify-content-around align-items-center">
+        <div>
+            <a href="index.html">
+                <i class="fas fa-home text-primary fa-lg"></i>
+            </a>
         </div>
-      </div>
+        <div>
+            <a href="about.html">
+                <i class="fas fa-info-circle text-primary fa-lg"></i>
+            </a>
+        </div>
+        <div>
+            <a href="gemstones.html">
+                <i class="fas fa-gem text-primary fa-lg"></i>
+            </a>
+        </div>
     </div>
-  </footer>
+</footer>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1"></script>
   <script>
@@ -105,38 +114,22 @@
         let html = ``;
         res.data.forEach(element => {
           html +=
-                    // `
-                    //      <div class="col-md-3 col-sm-12 mb-3">
-                    //       <div class="card">
-                    //         <a href="details.html?id=${element.id}" class="text-decoration-none">
-                    //           <img src="${element.image}" class="card-img-top" alt="${element.name}">
-                    //           <div class="card-body border-top">
-                    //             <h5 class="card-title">${element.name}</h5>
-                    //           </div>
-                    //           <div class="card-footer bg-primary text-body-secondary">
-                    //             <a class="text-white" href="details.html?id=${element.id}"><small class="text-body-white">Learn more>...</small></a>
-                    //           </div>
-                    //         </a>
-                    //       </div>
-                    //     </div>
-                    // `;
 
-                  `<div class="col mb-2 shadow p-3 mb-5 bg-body-tertiary rounded">
-                    <div class="d-flex mb-3" >
-                      <div class="mr-4">
-                        <span class="u-icon-v4 u-icon-v4-rounded-50x g-color-gray-dark-v4 g-bg-gray-light-v4 rounded-circle">
-                          <span class="u-icon-v4-inner">
-                            <img src='${element['image']}' style='height: 100px;' alt="${element.name}">
-                          </span>
-                        </span>
+                  `<div class="col=12 mb-3 shadow border p-3 bg-body-tertiary rounded">
+                    <div class="d-flex justify-content-between align-items-center" >
+                      <div class="">
+                          <img src='${element['image']}' style="height:80px" alt="${element.name}">
                       </div>
-                      <div class="pl-2">
-                        <h3 class="text-primary mb-15">${element.name}</h3>
-                        <p class="">
+                      <div class="">
+                        <h3 class="text-primary m-0">${element.name}</h3>
+                        <p class="m-0">
                           ${element.title}<br>
-                          <a class="text-primary" href="details.html?id=${element.id}">More...</a>
                         </p>
-
+                      </div>
+                      <div>
+                        <a class="text-primary" href="details.html?id=${element.id}">
+                          <i class="fas fa-angle-right text-primary" role="button"></i>
+                        </a>
                       </div>
                     </div>
                   </div>`;
